@@ -4,6 +4,7 @@
 20	textures\misc.png	176	224	248
 10	textures\enemies.png	3	26	110
 30	textures\tiles-4.png	4	193	170
+40	textures\enemies-2.png	0	128	128
 
 # id	left	top	right	bottom	texture_id
 
@@ -82,6 +83,15 @@
 30002	25	14	41	29	10	      # 
 30003	45	21	61	29	10	      # CHẾT
 #=====================================================#
+#rua
+#walk left
+51001	205	191	221	217	40
+51002	222	191	238	217	40
+#walk right
+51011	187	191	202	217	40
+51012	170	191	185	217	40
+#die
+51031	152	202	168	217	20
 
 ############### GẠCH,... ###############
 
@@ -187,6 +197,13 @@
 # ==== QUESTION MARK BRICK =========
 602	40001	1000	40001	100	40002	100	40003	100	40004	100
 
+# ==== KOOPAS  =========
+#walk left
+801	51001	100	51002	100
+#walk right
+802	51011	100	51012	100'
+#die
+803	51031	100
 
 # ==== GOOMBA  =========
 # Đi
@@ -217,6 +234,8 @@
 22	602
 # GOOMBA
 3	701	702
+#KOOPAS
+10	801	802	803
 
 [OBJECTS]
 # type	x	y	ani_set_id	extra_settings per object type
@@ -231,11 +250,11 @@
 # MARIO
 0	50.0	0	1
 # GOOMBA
-2	200	135	3
-2	260	135	3
-2	320	135	3
-2	480	135	3
-2	500	135	3
+#2	200	135	3
+#2	260	135	3
+#2	320	135	3
+2	480	100	3
+3	500	110	10
 
 # BRICK 
 # --- platform (hint: I created the list using Excel!) ----
