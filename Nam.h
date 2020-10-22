@@ -1,8 +1,8 @@
 #pragma once
 #include "GameObj.h"
-#define NAM_WALKING_SPEED	0.05f;
+#define NAM_WALKING_SPEED	0.5f;
 #define NAM_BBOX_W			16
-#define NAM_BBOX_H			15
+#define NAM_BBOX_H			50
 #define NAM_BBOX_H_DIE		9
 #define NAM_STATE_WALKING	100
 #define NAM_STATE_DIE		200

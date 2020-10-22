@@ -16,12 +16,12 @@ void Nam::GetBBox(float& left, float& top, float& right, float& bottom)
 void Nam::Update(DWORD dt, vector<LPGAMEOBJ>* coObjects)
 {
 	GameObj::Update(dt, coObjects);
-	
+
 	x += dx;
 	y += dy;
 
-	if (vx < 0 && x < 0) {
-		x = 0; vx = -vx;
+	if (vx < 0 && x < 289) {
+		x = 289; vx = -vx;
 	}
 
 	if (vx > 0 && x > 290) {
@@ -38,7 +38,7 @@ void Nam::Render()
 
 	animation_set->at(ani)->Render(x, y);
 
-	//RenderBBox();
+	RenderBBox();
 }
 
 void Nam::SetState(int state)

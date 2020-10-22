@@ -3,7 +3,7 @@
 
 #define RUA_WALKING_SPEED	0.03f;
 #define RUA_BBOX_W			16
-#define RUA_BBOX_H			26
+#define RUA_BBOX_H			27
 #define RUA_BBOX_H_DIE		16
 #define RUA_STATE_WALKING	100
 #define RUA_STATE_DIE		200

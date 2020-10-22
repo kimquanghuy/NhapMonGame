@@ -80,12 +80,12 @@ void Mario::Update(DWORD dt, vector<LPGAMEOBJ>* coObjects)
 
 			if (dynamic_cast<Nam*>(e->obj)) // if e->obj is Goomba 
 			{
-				Nam* namm= dynamic_cast<Nam*>(e->obj);
+				Nam* namm = dynamic_cast<Nam*>(e->obj);
 
 				// jump on top >> kill Goomba and deflect a bit 
 				if (e->ny < 0)
 				{
-					if (namm->GetState() != NAM_STATE_DIE)
+					if (namm->GetState() == NAM_STATE_DIE)
 					{
 						namm->SetState(NAM_STATE_DIE);
 						vy = -MARIO_JUMP_DEFLECT_SPEED;
@@ -99,8 +99,8 @@ void Mario::Update(DWORD dt, vector<LPGAMEOBJ>* coObjects)
 						{
 							if (level > MARIO_LEVEL_SMALL)
 							{
-								level = MARIO_LEVEL_SMALL;
-								StartUntouchable();
+								level = MARIO_LEVEL_FIREM;
+								//StartUntouchable();
 							}
 							else
 								SetState(MARIO_STATE_DIE);
@@ -150,7 +150,7 @@ void Mario::Render()
 		}
 	//fire
 		else if (level == MARIO_LEVEL_FIREM)
-		{	
+		{
 			if (vx == 0)
 			{
 				if (nx > 0) ani = MARIO_ANI_FIRE_IDLE_RIGHT;

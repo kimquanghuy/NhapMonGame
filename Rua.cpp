@@ -21,15 +21,15 @@ void Rua::Update(DWORD dt, vector<LPGAMEOBJ>* coObjects)
 {
 	GameObj::Update(dt, coObjects);
 
-	x += dx;
-	y += dy;
+	x = x + dx;
+	y = y + dy;
 
-	if (vx < 0 && x < 0) {
-		x = 0; vx = -vx;
+	if (vx < 0 && x < 400) {
+		x = 400; vx = -vx;
 	}
 
-	if (vx > 0 && x > 290) {
-		x = 290; vx = -vx;
+	if (vx > 0 && x > 550) {
+		x = 550; vx = -vx;
 	}
 }
 
@@ -44,7 +44,7 @@ void Rua::Render()
 
 	animation_set->at(ani)->Render(x, y);
 
-	//RenderBBox();
+	RenderBBox();
 }
 
 void Rua::SetState(int state)
