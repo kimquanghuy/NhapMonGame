@@ -178,7 +178,7 @@ void Mario::Render()
 
 	animation_set->at(ani)->Render(x, y, alpha);
 
-	RenderBBox();
+	//RenderBBox();
 }
 
 void Mario::SetState(int state)

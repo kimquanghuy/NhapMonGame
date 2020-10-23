@@ -2,7 +2,7 @@
 void Gach::Render()
 {
 	animation_set->at(0)->Render(x, y);
-	RenderBBox();
+	//RenderBBox();
 }
 void Gach::GetBBox(float& l, float& t, float& r, float& b)
 {
