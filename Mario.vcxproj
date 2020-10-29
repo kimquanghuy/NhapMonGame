@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Gach.h" />
+    <ClInclude Include="GachQ.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObj.h" />
     <ClInclude Include="KeyEventHandler.h" />
@@ -162,8 +163,10 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Gach.cpp" />
+    <ClCompile Include="GachQ.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObj.cpp" />
+    <ClCompile Include="Key.cpp" />
     <ClCompile Include="KhongVaCham.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mario.cpp" />

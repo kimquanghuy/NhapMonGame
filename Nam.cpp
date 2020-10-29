@@ -20,13 +20,15 @@ void Nam::Update(DWORD dt, vector<LPGAMEOBJ>* coObjects)
 	x += dx;
 	y += dy;
 
-	if (vx < 0 && x < 170) {
+	/*if (vx < 0 && x < 170) {
 		x = 170; vx = -vx;
-	}
+	}*/
+	if (vx > 0 && nx != 0)
+		vx = -vx;
 
-	if (vx > 0 && x > 290) {
+	/*if (vx > 0 && x > 290) {
 		x = 290; vx = -vx;
-	}
+	}*/
 }
 
 void Nam::Render()

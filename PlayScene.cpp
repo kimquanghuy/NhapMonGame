@@ -32,6 +32,7 @@ PlayScene::PlayScene(int id, LPCWSTR filePath) :
 #define OBJECT_TYPE_GOOMBA	2
 #define OBJECT_TYPE_KOOPAS	3
 #define OBJECT_TYPE_KVC	4
+#define OBJECT_TYPE_QBRICK 5
 
 #define OBJECT_TYPE_PORTAL	50
 
@@ -158,6 +159,7 @@ void PlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_BRICK: obj = new Gach(); break;
 	case OBJECT_TYPE_KOOPAS: obj = new Rua(); break;
 	case OBJECT_TYPE_KVC: obj = new kvc(); break;
+	case OBJECT_TYPE_QBRICK: obj = new QBrick(); break;
 	/*case OBJECT_TYPE_PORTAL:
 	{
 		float r = atof(tokens[4].c_str());
@@ -259,7 +261,7 @@ void PlayScene::Update(DWORD dt)
 	cx -= game->GetScreenWidth() / 2;
 	cy -= game->GetScreenHeight() / 2;
 
-	Game::GetInstance()->SetCamPos(cx, 0.0f /*cy*/);
+	Game::GetInstance()->SetCamPos((cx), -36.0f);
 }
 
 void PlayScene::Render()
@@ -284,12 +286,13 @@ void PlayScene::UnLoad()
 
 void PlaySceneKeyHandler::OnKeyDown(int KeyCode)
 {
-	//DebugOut(L"[INFO] KeyDown: %d\n", KeyCode);
+	//DebugOut((LPWSTR)L"[INFO] KeyDown: %d\n", KeyCode);
 
 	Mario* mario = ((PlayScene*)scene)->GetPlayer();
 	switch (KeyCode)
 	{
 	case DIK_SPACE:
+	
 		mario->SetState(MARIO_STATE_JUMP);
 		break;
 	case DIK_A:
@@ -315,6 +318,8 @@ void PlaySceneKeyHandler::KeyState(BYTE* states)
 		mario->SetState(MARIO_STATE_WALKING_RIGHT);
 	else if (game->IsKeyDown(DIK_LEFT))
 		mario->SetState(MARIO_STATE_WALKING_LEFT);
+	/*else if (game->IsKeyDown(DIK_SPACE))
+		mario->SetState(MARIO_STATE_JUMP);*/
 	else
 		mario->SetState(MARIO_STATE_IDLE);
 }

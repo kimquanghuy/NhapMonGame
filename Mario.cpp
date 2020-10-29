@@ -4,6 +4,8 @@
 
 #include "Mario.h"
 #include "Game.h"
+#include"GachQ.h"
+#include"KeyEventHandler.h"
 
 #include "Nam.h"
 #include "Portal.h"
@@ -85,7 +87,7 @@ void Mario::Update(DWORD dt, vector<LPGAMEOBJ>* coObjects)
 				// jump on top >> kill Goomba and deflect a bit 
 				if (e->ny < 0)
 				{
-					if (namm->GetState() == NAM_STATE_DIE)
+					if (namm->GetState() != NAM_STATE_DIE)
 					{
 						namm->SetState(NAM_STATE_DIE);
 						vy = -MARIO_JUMP_DEFLECT_SPEED;
@@ -107,7 +109,22 @@ void Mario::Update(DWORD dt, vector<LPGAMEOBJ>* coObjects)
 						}
 					}
 				}
-			} // if Goomba
+			}
+			//rua
+			//Qbrick
+
+			if (dynamic_cast<QBrick*>(e->obj)) // if e->obj is Goomba 
+			{
+				QBrick* qb = dynamic_cast<QBrick*>(e->obj);				
+				if (e->dy < 0)
+				{
+					if (qb->GetState() != QBRICK_STATE_2)
+					{
+						qb->SetState(QBRICK_STATE_2);						
+					}
+				}			
+			}
+			// if Goomba
 			else if (dynamic_cast<Portal*>(e->obj))
 			{
 				Portal* p = dynamic_cast<Portal*>(e->obj);
@@ -178,7 +195,7 @@ void Mario::Render()
 
 	animation_set->at(ani)->Render(x, y, alpha);
 
-	//RenderBBox();
+	RenderBBox();
 }
 
 void Mario::SetState(int state)
@@ -196,8 +213,10 @@ void Mario::SetState(int state)
 		nx = -1;
 		break;
 	case MARIO_STATE_JUMP:
-		// TODO: need to check if Mario is *current* on a platform before allowing to jump again
-		vy = -MARIO_JUMP_SPEED_Y;
+		{
+			// TODO: need to check if Mario is *current* on a platform before allowing to jump again
+			vy = -MARIO_JUMP_SPEED_Y;
+		}
 		break;
 	case MARIO_STATE_IDLE:
 		vx = 0;

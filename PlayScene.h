@@ -8,6 +8,7 @@
 #include "Nam.h"
 #include "Rua.h"
 #include"KhongVaCham.h"
+#include"GachQ.h"
 
 class PlayScene :public Scene
 {
